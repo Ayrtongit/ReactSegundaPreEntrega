@@ -95,7 +95,7 @@ let BrandView = brandContent.map(units => {
 
 
 <div className=" flex flex-col">
-<h2 className="m-3 pt-5 text-start font-medium text-gray-900 dark:text-white text-3xl font-semibold">Componentes: </h2>
+<h2 className="m-3 pt-5 text-start font-medium text-gray-900 dark:text-white text-3xl font-semibold">Dispositivos: </h2>
 {isLoadingCategory == true ? (
  <div  className="mx-2 mb-5 ">
  {CategoryView}
