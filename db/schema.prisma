@@ -1,0 +1,113 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["views"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Product {
+  id           String     @id @unique @default(cuid())
+  image        String?
+  title        String
+  brand        Brand[]
+  category     Category[]
+  description  Json[]
+  quantity     Int       
+  price        Float     
+  authenticity Int?
+  returnPolicy Int?
+  warranty     Int?
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+}
+model Sell {
+  id        String   @id @unique @default(cuid())
+  userId    String?
+  address   String?
+  price     Float    
+  status    Int?
+  sold      Json[]
+  user      User?    @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model User {
+  id            String    @id @unique @default(cuid())
+  password      String 
+  phone         String?
+  name          String?
+  surname       String?
+  email         String   @unique
+  emailVerified DateTime? @map(name: "email_verified")
+  image         String?
+  createdAt     DateTime  @default(now()) @map(name: "created_at")
+  updatedAt     DateTime  @default(now()) @map(name: "updated_at")
+  sells         Sell[]
+  loginSession Session[]
+}
+
+model Category {
+  id        String    @id @unique @default(cuid())
+  name      String    @unique
+  image     String?
+  items     Product[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Brand {
+  id        String    @id @unique @default(cuid())
+  name      String    @unique
+  image     String?
+  items     Product[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Account {
+  id                 Int       @default(autoincrement()) @id
+  compoundId         String    @unique @map(name: "compound_id")
+  userId             Int       @map(name: "user_id")
+  providerType       String    @map(name: "provider_type")
+  providerId         String    @map(name: "provider_id")
+  providerAccountId  String    @map(name: "provider_account_id")
+  refreshToken       String?   @map(name: "refresh_token")
+  accessToken        String?   @map(name: "access_token")
+  accessTokenExpires DateTime? @map(name: "access_token_expires")
+  createdAt          DateTime  @default(now()) @map(name: "created_at")
+  updatedAt          DateTime  @default(now()) @map(name: "updated_at")
+
+  @@index([providerAccountId], name: "providerAccountId")
+  @@index([providerId], name: "providerId")
+  @@index([userId], name: "userId")
+
+  @@map(name: "accounts")
+}
+
+
+model Session {
+  id       String @id @default(uuid())
+  token    String @unique
+  user     User?  @relation(fields: [userId], references: [id])
+  userId   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  expirationDate DateTime
+}
+
+
+
+model VerificationRequest {
+  id         Int      @default(autoincrement()) @id
+  identifier String
+  token      String   @unique
+  expires    DateTime
+  createdAt  DateTime  @default(now()) @map(name: "created_at")
+  updatedAt  DateTime  @default(now()) @map(name: "updated_at")
+
+  @@map(name: "verification_requests")
+}
