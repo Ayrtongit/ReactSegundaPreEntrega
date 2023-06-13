@@ -7,7 +7,7 @@ export default function Home() {
     <div>
         
       <Head>
-        <title>eCommerce</title>
+        <title>SegundaPreEntregaRegino</title>
         <meta name="description" content="Index" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
