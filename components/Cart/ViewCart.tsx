@@ -124,7 +124,7 @@ const EmailValidationForm = () => {
     <form>
 
 
-        <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" htmlFor="email">Email:</label>
+        <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" htmlFor="email">Correo:</label>
 
       <input
         type="email"
@@ -134,7 +134,7 @@ const EmailValidationForm = () => {
         onChange={handleEmailChange}
         className={`${isValidEmail ? 'bg-green-100' : 'bg-red-100'} border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500`}
       />
-              <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" htmlFor="email">Reingresa Email:</label>
+              <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" htmlFor="email">Reingrese el correo:</label>
 
       <input
         type="email"
@@ -221,7 +221,7 @@ const products = cart.items.map(product => {
         <div className="text-center mt-16 mb-16">
           <h2 className="text-3xl font-semibold">Tu carrito esta vacío.</h2>
           <p className="mt-2 mb-2">
-            No tienes productos agregados en tu carrito todavía. ¡Agrega algunos para continuar!
+            No tienes productos agregados. ¡Agrega algunos para continuar!
           </p>
         </div>
       ) : (
@@ -233,7 +233,7 @@ const products = cart.items.map(product => {
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
-              <span className="sr-only">Icon description</span>
+              <span className="sr-only">Icon descripcion</span>
               </button>
         {products}
         </div>
