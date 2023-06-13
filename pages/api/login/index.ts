@@ -40,7 +40,7 @@ async function checkUser(req: NextApiRequest): Promise<any> {
   });
  
   if (!user) {
-    return { error: "Invalid email or password" };
+    return { error: "Invalido correo o contraseña" };
   }
 
   const isPasswordCorrect = await bcrypt.compare(
@@ -49,7 +49,7 @@ async function checkUser(req: NextApiRequest): Promise<any> {
   );
 
   if (!isPasswordCorrect) {
-    return { error: "Invalid email or password" };
+    return { error: "Invalido correo o contraseña" };
   }
 
   const { id, name, emailVerified } = user;
