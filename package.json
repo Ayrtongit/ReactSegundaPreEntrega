@@ -1,9 +1,9 @@
 {
-  "author": "Leonardo Capone",
+  "author": "regino ayrton",
   "name": "button-dark-mode",
   "version": "1.0.0",
   "bugs": {
-    "url": "https://github.com/Esquiafo/DarkMode/issues"
+    "url": "https://github.com/Ayrtongit/ReactSegundaPreEntrega"
   },
   "prisma": {
     "schema": "db/schema.prisma"
@@ -16,10 +16,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/Esquiafo/DarkMode.git"
+    "url": "https://github.com/Ayrtongit/ReactSegundaPreEntrega.git"
   },
   "license": "MIT",
-  "homepage": "https://github.com/Esquiafo/DarkMode",
+  "homepage": "https://github.com/Ayrtongit/ReactSegundaPreEntrega",
   "dependencies": {
     "@heroicons/react": "^2.0.14",
     "@prisma/client": "^4.10.0",
